@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>upload_test</title>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+  <h1>上传测试</h1>
+  <input id="uploadFile" type="file" name="ufile">
+  <button onclick="upload()">上传</button>
+  <!-- built files will be auto injected -->
+  <a id="attachment"></a>
+  <label id="percent"></label>
+</body>
+<script>
+  function upload() {
+    var form = new FormData();
+    form.append("ufile", uploadFile.files[0]);
+
+    var config = {
+      onUploadProgress: function(progressEvent) {
+        percent.innerText = Math.round((progressEvent.loaded * 100) / progressEvent.total)
+      }
+    };
+
+    axios.post('service/public/sys/attachment/uploadFile', form, config)
+      .then(function(res) {
+        attachment.href = "service/public/sys/attachment/getAttachment?attachment_id=" +
+          res.data.id;
+        attachment.innerText = res.data.name;
+      })
+      .catch(function(err) {
+        percent.innerText = err.response.data
+      });
+  }
+</script>
+
+</html>
