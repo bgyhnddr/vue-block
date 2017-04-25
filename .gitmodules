@@ -1,0 +1,3 @@
+[submodule "app/module/restaurant"]
+	path = app/module/restaurant
+	url = https://github.com/bgyhnddr/vue-block-restaurant.git
