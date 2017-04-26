@@ -1,0 +1,1 @@
+require('../../app/module/restaurant/test/menu.js')

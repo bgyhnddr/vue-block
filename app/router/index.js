@@ -1,13 +1,11 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Hello from '../module/base/src/components/Hello'
-
+import routers from './router'
 Vue.use(Router)
 
-export default new Router({
-  routes: [{
-    path: '/',
-    name: 'Hello',
-    component: Hello
-  }]
+var router = new Router()
+routers.forEach((o)=>{
+  o(router)
 })
+
+export default router
