@@ -1,4 +1,4 @@
-module.exports = function(app) {
+module.exports = (app) => {
   let fs = require('fs')
   let session = require('express-session')
   let bodyParser = require('body-parser')
