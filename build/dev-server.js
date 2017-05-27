@@ -21,6 +21,7 @@ var autoOpenBrowser = !!config.dev.autoOpenBrowser
 var proxyTable = config.dev.proxyTable
 
 require('./build-router')()
+require('./init_module')()
 var app = express()
 
 require('../app/entry')(app)

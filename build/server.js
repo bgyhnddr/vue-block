@@ -4,6 +4,8 @@ var config = require('../config')
 // default port where dev server listens for incoming traffic
 var port = process.env.PORT || config.dev.port
 
+require('./build-router')()
+require('./init_module')()
 
 var app = express()
 
